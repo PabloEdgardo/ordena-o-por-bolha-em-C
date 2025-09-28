@@ -1,15 +1,20 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int main() {
     int lista[] = {10,9,8,7,5,3,2,4};
     int n = sizeof(lista)/sizeof(lista[0]);
     bool swap = true;
     printf("array inicial: ");
+
     for(int i;i < n; i ++) {printf("%d, ",lista[i]);}
     printf("\n\n");
+
+    int count = 1;
     while (swap == true) 
     {
         swap = false;
+        printf("iteração %d: \n\n", count++);
         for (int i = 0; i < (n - 1); i++)
          {
             if (lista[i] > lista[i + 1])
@@ -26,12 +31,15 @@ int main() {
                     if(j < n-1) printf(", ");
                 }
                 printf("\n");
-            }
-            
+            }   
         }
+         if(!swap) {
+            printf("Nenhuma troca necessária - array ordenado!\n");
+        }
+        printf("\n");
     }
     
-    printf("\narray final: ");
+    printf("array final: ");
 
     for(int i;i < n; i ++) 
     {
