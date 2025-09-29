@@ -1,14 +1,22 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+void printArray(int arr[], int n, const char* label) {
+    printf("%s", label);
+    for(int i = 0; i < n; i++) {
+        printf("%d", arr[i]);
+        if(i < n - 1) printf(", ");
+    }
+    printf("\n");
+}
+
 int main() {
     int lista[] = {10,9,8,7,5,3,2,4};
     int n = sizeof(lista)/sizeof(lista[0]);
     bool swap = true;
-    printf("array inicial: ");
 
-    for(int i;i < n; i ++) {printf("%d, ",lista[i]);}
-    printf("\n\n");
+    printArray(lista, n, "array inicial: ");
+    printf("\n");
 
     int count = 1;
     while (swap == true) 
@@ -39,13 +47,7 @@ int main() {
         printf("\n");
     }
     
-    printf("array final: ");
-
-    for(int i;i < n; i ++) 
-    {
-        printf("%d",lista[i]);
-        if(i < n-1) printf(", ");
-    }
+    printArray(lista, n,"array final: "); 
 
     printf("\n");
 }
